@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment Form</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
+header{background:#1a1a1a;color:#fff;padding:15px;display:flex;justify-content:space-between;align-items:center;}
+nav a{color:#fff;margin-left:20px;text-decoration:none;}
+nav a.active{text-decoration:underline;}
+.hamburger{display:none;flex-direction:column;cursor:pointer;}
+.hamburger div{width:25px;height:3px;background:#fff;margin:4px;}
+
+@media(max-width:768px){
+nav{display:none;flex-direction:column;background:#1a1a1a;width:100%;padding:10px;}
+nav.show{display:flex;}
+.hamburger{display:flex;}
+nav a{margin:10px 0;}
+}
+
+.form-container{max-width:450px;margin:40px auto;padding:20px;border:1px solid #ddd;border-radius:10px;}
+input,select{width:100%;padding:10px;margin:10px 0;border-radius:6px;border:1px solid #ccc;}
+.pay-btn{background:#0d6efd;color:#fff;width:100%;padding:12px;border:none;border-radius:8px;cursor:pointer;font-size:16px;}
+footer{background:#1a1a1a;color:#fff;text-align:center;padding:15px;margin-top:30px;}
+.success{background:#28a745;color:#fff;padding:15px;margin-top:20px;border-radius:8px;display:none;}
+</style>
+</head>
+
+<body>
+
+<header>
+<h2>PayNow</h2>
+<div class="hamburger" id="ham"><div></div><div></div><div></div></div>
+<nav id="nav">
+<a href="index.html">Home</a>
+<a href="services.html">Pricing</a>
+<a href="payment.html" class="active">Payment</a>
+<a href="contact.html">Contact</a>
+</nav>
+</header>
+
+<div class="form-container">
+<h2>Make Payment</h2>
+
+<input type="text" id="name" placeholder="Full Name">
+<input type="email" id="email" placeholder="Email">
+<input type="number" id="amount" placeholder="Enter Amount">
+
+<select id="method">
+<option value="UPI">UPI</option>
+<option value="Card">Card</option>
+<option value="NetBanking">Net Banking</option>
+</select>
+
+<button class="pay-btn" onclick="payNow()">Pay Securely</button>
+
+<div class="success" id="successMsg">Payment Successful ✔</div>
+</div>
+
+<footer>© 2025 PayNow Payments</footer>
+
+<script>
+const ham=document.getElementById("ham");
+const nav=document.getElementById("nav");
+ham.onclick=()=>nav.classList.toggle("show");
+
+function payNow(){
+document.getElementById("successMsg").style.display="block";
+}
+</script>
+
+</body>
+</html>
